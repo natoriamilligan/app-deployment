@@ -25,6 +25,17 @@
    2. Generate access key
 3. Create repository for ECS image
 4. Create ECS Cluster
+5. Create a Task Definition
+   - Name the task definition family
+   - Launch type = Fargate
+   - CPU = .5 vCPU
+   - Memory 2 GB
+   - Create default task execution role
+   - Container
+     - Name container
+     - Add image URI
+     - Define port mapping = TCP Port 5000 HTTP
+6. Create a service
 
 
 
