@@ -44,7 +44,12 @@
      - Choose at least 2 subnets
    - Service will have an error until we push an image (Next Step)
 7. Push Docker image to ECR via AWs CLI
-   - 
+   1. Configure AWS CLI credentials
+   2. Log into ECR (add command here and wherever else needed)
+   3. Build docker image
+   4. Tag image
+   5. Push image
+   6. Confirm that image was successfully push to the ECR repository
 8. Set up Github Actions for automatic deployments
 
 
