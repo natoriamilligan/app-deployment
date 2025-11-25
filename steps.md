@@ -52,6 +52,7 @@
 8. Force new deployment for your service 
 9. Confirm that image was successfully push to the ECR repository via the public IP
 10. Set up Github Actions for automatic deployments
+    1. Add secrets and variables to the Github repository
 
 
 
@@ -64,10 +65,15 @@
 
 * Amazon ECS
 * Amazon ECR
+* Amazon IAM
+* Github Actions
+* CMD
+* Docker
 
 ## What I Learned
 - How to use Route 53 DNS service for an existing domain
 - How to create alias records in Route 53 to access AWS resources
 - How to create an SSL certificate with AWS Certificate Manager and attach it to a CloudFront Distribution
 - How to create cache invalidations
-- AWS ECR and how to push and image via the CLI
+- AWS ECR and how to push an image via the CLI
+- How to automate deployment with Github Actions
