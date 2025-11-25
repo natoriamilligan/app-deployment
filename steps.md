@@ -70,3 +70,4 @@
 - How to create alias records in Route 53 to access AWS resources
 - How to create an SSL certificate with AWS Certificate Manager and attach it to a CloudFront Distribution
 - How to create cache invalidations
+- AWS ECR and how to push and image via the CLI
