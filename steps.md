@@ -18,7 +18,7 @@
 7. Add frontend files to S3 bucket
 
 ## Backend
-1. Create IAM user to handle Github Actions
+1. Create IAM user to handle ECR and ECS
    1. Attach Policies:
       - AmazonEC2ContainerRegistryFullAccess - allows user to use AWS ECR
       - AmazonECS_FullAccess - allows user to use AWS ECS
@@ -55,6 +55,11 @@
     1. Add secrets and variables to the Github repository
     2. Create workflow and push to Github
 
+## Database
+1. Go to AWs RDS to create a database
+   - Choose full configuration
+   - Free tier
+   - Create username and password
 
 
 
