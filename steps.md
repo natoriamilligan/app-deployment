@@ -72,8 +72,9 @@
 4. In AWS Secrets Manager console
    - Add a secret for database URL
    - Choose other type of secret
-   - Add key/value for database URL
-5. Create inline policy to taskexecution role to read secrets from Secrets Manager 
+   - Add database URL in plain text
+5. Revise the task definition with JSON to include the secret made using the secret arn
+6. Create inline policy to task execution role to read secrets from Secrets Manager 
 
 
 
