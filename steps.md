@@ -99,7 +99,7 @@
 * CMD
 * Docker
 * AWS RDS
-* AWS EC2 (Security Groups)
+* AWS EC2 (Security Groups and Load Balancer)
 * AWS Secrets Manager
 
 ## What I Learned
