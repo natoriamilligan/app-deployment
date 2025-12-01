@@ -2,7 +2,7 @@
 
 ## Frontend
 1. Register a domain using a Domain Registrar
-2. Create an S3 bucket with the same name as the root domain
+2. Create an S3 bucket with the same name as the root domain and add frontend files
 3. Use Route 53 as the DNS service for the domain 
    1. Create a hosted zone (name hosted zone the root domain)
    2. Add Route 53 nameservers for your hosted zone to the Domain Registrar used to register domain
@@ -11,11 +11,10 @@
 5. Add root domain and subdomain as alternate domains for CF distribution
 6. Request SSL Certificate from AWS Certificate Manager
    1. Include root domain and (www) subdomain in certificate
-   2. Add CNAMES to hosted zone in Route 53 (ACM did this automatically and added A and AAAA records to hosted zones. or do manually)
+   2. ACM will add CNAME records and A/AAAA records to your hosted zone. If not, they will need to be done manually.
    3. Once certificate is issued, add certificate to CF distribution
-   5. add index.html as the default root object
+   5. Add index.html as the default root object in the CF distribution
    6. Wait for CF ditribution to redeploy
-7. Add frontend files to S3 bucket
 
 ## Backend
 1. Create IAM user to handle ECR and ECS
