@@ -15,15 +15,31 @@
    3. Once certificate is issued, add certificate to CF distribution
    5. Add index.html as the default root object in the CF distribution
    6. Wait for CF ditribution to redeploy
+  
+## Database
+1. Go to AWS RDS to create a database
+   - Choose full configuration
+   - Free tier
+   - Create username and password
+   - Choose instance configuration (Burstable classes / db.t3.micro)
+   - Storage type: General Purpose SSD, 20 GiB
+   - Choose VPC (must be the same that ECS tasks use)
+   - Create and name new VPC security group
+   - Port: 5432
+2. Add the database endpoint to Flask app code
+3. Create environment variable in AWS Secrets Manager console
+   - Add a secret for the database URL
+   - Choose other type of secret
+   - Add database URL in plain text
 
 ## Backend
-1. Create IAM user to handle ECR and ECS
+1. Create an IAM user to handle ECR and ECS
    1. Attach Policies:
       - AmazonEC2ContainerRegistryFullAccess - allows user to use AWS ECR
       - AmazonECS_FullAccess - allows user to use AWS ECS
-   2. Generate access key
-3. Create repository for ECS image
-4. Create ECS Cluster
+   2. Generate access key for the user
+3. Create repository for ECS image in AWS ECR
+4. Create an ECS Cluster
 5. Create a Task Definition
    - Name the task definition family
    - Launch type = Fargate
@@ -32,16 +48,17 @@
    - Create default task execution role
    - Container
      - Name container
-     - Add image URI
-     - Define port mapping = TCP Port 5000 HTTP
-6. Create ALB in EC2 console
+     - Add image URI (add :latest at the end)
+     - Define port mapping = TCP Port 80 HTTP (Gunicorn is listening on port 80 inside the container)
+6. Create and attach an inline policy to the task execution role to read secrets from AWS Secrets Manager
+7. Create ALB in EC2 console
    - create security group for ALB and add to it
      - all traffic for port 80 and port 443 from anywhere
      - allow all outbound traffic to ECS tasks (the banksie-sg)
    - create target group for ecs tasks (For an IP but do not add any targets)
    - add ALB url to frontend
-7. Add new files to S3 bucket
-8. Create a service
+8. Add new files to S3 bucket
+9. Create a service
    - Add task definition previously created
    - Choose capacity provider strategy (FARGATE)
    - Desired tasks = 1
@@ -50,40 +67,25 @@
      - Choose at least 2 subnets
    - Add application load balancer
    - Service will have an error until we push an image (Next Step)
-9. Push Docker image to ECR via AWs CLI
+10. Push Docker image to ECR via AWs CLI
    1. Configure AWS CLI credentials
    2. Log into ECR (add command here and wherever else needed)
    3. Build docker image
    4. Tag image
    5. Push image
-10. Force new deployment for your service 
-11. Confirm that image was successfully push to the ECR repository via the public IP
-12. Create an SSL certificate for you ALB endpoint
-13. Set up Github Actions for automatic deployments
+11. Force new deployment for your service 
+12. Confirm that image was successfully push to the ECR repository via the public IP
+13. Create an SSL certificate for you ALB endpoint
+14. Set up Github Actions for automatic deployments
     1. Add secrets and variables to the Github repository
     2. Create workflow and push to Github
+  
 
-## Database
-1. Go to AWs RDS to create a database
-   - Choose full configuration
-   - Free tier
-   - Create username and password
-   - Choose instance configuration (Burstable classes / db.t3.micro)
-   - Storage type: General Purpose SSD, 20 GiB
-   - Choose same VPC as ECS task
-   - Create a new VPC security group
-   - Port: 5432
+4. Revise the task definition with JSON to include the secret made using the secret arn
+5. 
 2. In EC2 console, go to security groups
    - Choose the RDS security group just made
    - Add inbound rule so the task security group can access the RDS
-3. Add database url to local app
-4. In AWS Secrets Manager console
-   - Add a secret for database URL
-   - Choose other type of secret
-   - Add database URL in plain text
-5. Revise the task definition with JSON to include the secret made using the secret arn
-6. Create inline policy to task execution role to read secrets from Secrets Manager 
-
 
 
 
