@@ -123,9 +123,10 @@ For more screenshots, click [here](./screenshots)
         - Add image URI (add :latest at the end)
         - Define port mapping = TCP Port 80 HTTP (Gunicorn is listening on port 80 in flask app)
    6. Revised the task definition with JSON to include the secret made using the secret arn
-      ![Secrets](./screenshots/revise-json-secrets.png)
+      ![Secrets](./screenshots/revise-json-secrets.PNG)
+      
    8. Created and attached an inline policy to the task execution role to read secrets from AWS Secrets Manager
-      ![Update Task Role](./screenshots/update-task-role.png)
+      ![Update Task Role](./screenshots/update-task-role.PNG)
    10. Created ALB in EC2 console
       - Added listener for HTTP and HTTPS
         - Requested new ACM certificate for api.banksie.app
@@ -156,6 +157,7 @@ For more screenshots, click [here](./screenshots)
    14. Pushed Docker image to ECR via AWS CLI
       - Configured AWS CLI credentials using access keys from IAM user created
        ![Configure credentials](./screenshots/cli-configure.png)
+       
       - Logged into ECR
        ![ECR Login](./screenshots/ecr-login.png)
       - Built/tagged docker image
