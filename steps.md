@@ -59,6 +59,8 @@
      - allow inbound HTTP and HTTPS traffic from anywhere
      - allow all outbound traffic to ECS tasks (the banksie-sg)
    - create target group for ecs tasks (For an IP but do not add any targets)
+     - Add health check path as /health
+     - in Flask app add route for /health to return code 200
    - Add ALB url to frontend code files
    - Add new files to S3 bucket
 9. Create a service
