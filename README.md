@@ -10,22 +10,26 @@ In this project, I successfully deployed a multi-tier cloud-based banking app in
 * PostgreSQL
   
 ### AWS Infrastructure
-* AWS Route 53
-* AWS Cloud Front 
-* AWS S3
-* AWS ECS
-* AWS ECR
-* AWS IAM
-* AWS RDS (PostgreSQL)
-* AWS VPC
-* AWS EC2 (Security Groups and Load Balancer)
-* AWS Secrets Manager
-* AWS CloudWatch
+* Route 53
+* Cloud Front 
+* S3
+* ECS
+* ECR
+* IAM
+* RDS (PostgreSQL)
+* VPC
+* EC2 (Security Groups and Load Balancer)
+* Secrets Manager
+* CloudWatch
 
 ### DevOps / CI/CD
 * Github Actions
 * Docker
 * ECR
+
+### Dev Tools
+* Docker Compose
+* Insomnia
 
 ## 🏗️ Architecture Setup
 
