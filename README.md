@@ -3,6 +3,30 @@
 ## ❓ Overview
 In this project, I successfully deployed a multi-tier cloud-based banking app in AWS using S3, ECS, and RDS. 
 
+## 🧰 Tech
+### Application
+* Python (Flask)
+* React
+* PostgreSQL
+  
+### AWS Infrastructure
+* AWS Route 53
+* AWS Cloud Front 
+* AWS S3
+* AWS ECS
+* AWS ECR
+* AWS IAM
+* AWS RDS (PostgreSQL)
+* AWS VPC
+* AWS EC2 (Security Groups and Load Balancer)
+* AWS Secrets Manager
+* AWS CloudWatch
+
+### DevOps / CI/CD
+* Github Actions
+* Docker
+* ECR
+
 ## 🏗️ Architecture Setup
 
 ### 🖥️ Frontend
@@ -96,7 +120,7 @@ In this project, I successfully deployed a multi-tier cloud-based banking app in
        - Added secrets and variables to the Github repository
        - Created workflow (.yml file)
       
-## Troubleshooting
+## 🚧 Troubleshooting
 I encountered several problems throughout creating this architecture and deploying this app. Here are a list of some of the problems I encountered and how I fixed them:
 
 1. When I first created the yaml file for Github Actions I kept encountering an error "key enableFaultInjection" which was related to my task definition. I tried deleting the key from the task definition JSON file but that still did't fix the problem. The tasks would only fail if they were started via Github Actions but not if I pushed an image manually to ECR. I realized that I was using the wrong version for the action invocation for aws-actions/amazon-ecs-deploy-task-definition. I need to be using version 2 but I was using version 1. I assume there was a bug that was fixed.
