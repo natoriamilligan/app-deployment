@@ -108,7 +108,7 @@ For more screenshots, click [here](./screenshots)
       1. Attached policies:
          - AmazonEC2ContainerRegistryFullAccess - allows user to use AWS ECR
          - AmazonECS_FullAccess - allows user to use AWS ECS
-        ![Github User](./screenshots/github-user-create.png)
+        ![Github User](./screenshots/github-user-create.PNG)
       2. Generated access key for the user to be user later
    3. Created repository for ECS image in AWS ECR
    4. Created an ECS Cluster
@@ -125,7 +125,7 @@ For more screenshots, click [here](./screenshots)
    6. Revised the task definition with JSON to include the secret made using the secret arn
       ![Secrets](./screenshots/revise-json-secrets.png)
    8. Created and attached an inline policy to the task execution role to read secrets from AWS Secrets Manager
-      
+      ![Update Task Role](./screenshots/update-task-role.png)
    10. Created ALB in EC2 console
       - Added listener for HTTP and HTTPS
         - Requested new ACM certificate for api.banksie.app
