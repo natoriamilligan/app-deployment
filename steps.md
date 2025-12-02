@@ -78,14 +78,14 @@
    - Choose the RDS security group made previously
    - Add inbound rule so the task security group can access the RDS
 11. Push Docker image to ECR via AWS CLI
-   1. Configure AWS CLI credentials
-   2. Log into ECR 
-   3. Build/tag docker image
-   4. Push image
+   - Configure AWS CLI credentials
+   - Log into ECR 
+   - Build/tag docker image
+   - Push image
 12. Force new deployment for your service with the new image and revised task to include the image
 13. Set up Github Actions for automatic deployments
-    1. Add secrets and variables to the Github repository
-    2. Create workflow (.yml file)
+    - Add secrets and variables to the Github repository
+    - Create workflow (.yml file)
 
 ## Services Used
 * Amazon Route 53 ($0.50/m)
