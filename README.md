@@ -58,7 +58,7 @@ In this project, I successfully deployed a multi-tier cloud-based banking app in
         - Define port mapping = TCP Port 80 HTTP (Gunicorn is listening on port 80 in flask app)
    6. Revised the task definition with JSON to include the secret made using the secret arn
    7. Created and attached an inline policy to the task execution role to read secrets from AWS Secrets Manager
-   10. Created ALB in EC2 console
+   8. Created ALB in EC2 console
       - Added listener for HTTP and HTTPS
         - Requested new ACM certificate for api.banksie.app
         - Added A record to Route 53 for api.banksie.app (will need time to propagate)
@@ -70,29 +70,28 @@ In this project, I successfully deployed a multi-tier cloud-based banking app in
         - in Flask app add route for /health to return code 200
       - Add ALB url to frontend code files
       - Add new files to S3 bucket
-   11. Created security group to be used by ECS tasks (banksie-sg)
+   9. Created security group to be used by ECS tasks (banksie-sg)
        - Allow HTTP traffic from ALB created on port 80
        - Allow outbound traffic to RDS database
        - Modified the ALB security group to allow outbound traffic to this security group
-   13. Create a service
-      - Add task definition previously created
+   10. Created a service (banksie-task-service)
+      - Added task definition previously created (banksie-task)
       - Choose capacity provider strategy (FARGATE)
       - Desired tasks = 1
       - Networking
         - Choose VPC (same as database)
-        - Choose at least 2 subnets
-      - Create security group that allows HTTP/HTTPS traffic from ALB on port 80
-      - Add ALB that was previously created
+        - Choose all subnets in us-east-1
+      - Added banksie-sg security group previously created
+      - Added ALB that was previously created
       - Service will have an error until we push an image
-   14. In EC2 console, go to security groups
-      - Choose the RDS security group made previously
-      - Add inbound rule so the task security group can access the RDS
-   15. Push Docker image to ECR via AWS CLI
-      - Configure AWS CLI credentials
-      - Log into ECR 
-      - Build/tag docker image
-      - Push image
-   16. Force new deployment for your service with the new image and revised task to include the image
+   11. Configured RDS security group previously created
+      - Added inbound rule so the task security group (banksie-sg) can access the RDS on port 5432
+   12. Pushed Docker image to ECR via AWS CLI
+      - Configured AWS CLI credentials using access keys from IAM user created
+      - Logged into ECR 
+      - Built/tagged docker image
+      - Pushed image to ECR
+   16. Forced new deployment for the service using a revised task with the "latest" image
    17. Set up Github Actions for automatic deployments
-       - Add secrets and variables to the Github repository
-       - Create workflow (.yml file)
+       - Added secrets and variables to the Github repository
+       - Created workflow (.yml file)
