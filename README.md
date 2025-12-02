@@ -1,7 +1,8 @@
 # Banksie App Deployment
 
 ## ❓ Overview
-In this project, I successfully deployed a multi-tier cloud-based banking app in AWS using S3, ECS, and RDS. 
+In this project, I successfully deployed a multi-tier cloud-based banking app in AWS using S3, ECS, and RDS using the CLI and Github Actions. 
+For more screenshots, click [here](./screenshots)
 
 ## 🧰 Tech
 ### Application
