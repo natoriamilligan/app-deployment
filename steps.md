@@ -6,7 +6,7 @@
 3. Use Route 53 as the DNS service for the domain 
    1. Create a hosted zone (name hosted zone the root domain)
    2. Add Route 53 nameservers for your hosted zone to the Domain Registrar used to register domain
-   3. Make sure nameservers have propogated. (Can take up to 48 hours)
+   3. Make sure nameservers have propagated (Can take up to 48 hours)
 4. Create a CloudFront distribution with the origin as S3 bucket (will add bucket policy onto root domain S3 bucket)
 5. Add root domain and subdomain as alternate domains for CF distribution
 6. Request SSL Certificate from AWS Certificate Manager
@@ -54,7 +54,7 @@
 7. Create ALB in EC2 console
    - Add listener for HTTP and HTTPS
      - Request new ACM certificate for api.banksie.app
-     - add a record to Route 53 for api.banksie.app
+     - add a record to Route 53 for api.banksie.app (will need time to propagate)
    - create security group for ALB
      - allow inbound HTTP and HTTPS traffic from anywhere
      - allow all outbound traffic to ECS tasks (the banksie-sg)
