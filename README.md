@@ -162,7 +162,7 @@ For more screenshots, click [here](./screenshots)
    16. Updated the service using a revised task with the "latest" image
    17. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
-       - Created workflow [See yaml file](./deploy.yml)
+       - Created workflow [(See file)](./deploy.yml)
       
 ## 🚧 Troubleshooting
 I encountered several problems throughout creating this architecture and deploying this app. Here are a list of some of the problems I encountered and how I fixed them:
