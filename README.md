@@ -132,10 +132,9 @@ For more screenshots, click [here](./screenshots)
         - Added A record to Route 53 for api.banksie.app (will need time to propagate)
       - Created a security group for ALB (flask-app-alb-sg)
         - Allow inbound HTTP and HTTPS traffic from anywhere
-        - Allow all outbound traffic to ECS tasks
-      - create target group for ecs tasks (For an IP but do not add any targets)
+      - Created target group for ecs tasks (For an IP but do not add any targets)
         - Add health check path as /health
-        - in Flask app add route for /health to return code 200
+        - In Flask app added route for /health to return code 200
       - Add ALB url to frontend code files
       - Add new files to S3 bucket
    11. Created security group to be used by ECS tasks (banksie-sg)
@@ -156,11 +155,13 @@ For more screenshots, click [here](./screenshots)
       - Added inbound rule so the task security group (banksie-sg) can access the RDS on port 5432
    14. Pushed Docker image to ECR via AWS CLI
       - Configured AWS CLI credentials using access keys from IAM user created
-      - Logged into ECR 
+       ![Configure credentials](./screenshots/cli-configure.png)
+      - Logged into ECR
+       ![ECR Login](./screenshots/ecr-login.png)
       - Built/tagged docker image
       - Pushed image to ECR
-   15. Updated the service using a revised task with the "latest" image
-   16. Set up Github Actions for automatic deployments
+   16. Updated the service using a revised task with the "latest" image
+   17. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
        - Created workflow (.yml file)
       
