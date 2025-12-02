@@ -91,7 +91,7 @@ In this project, I successfully deployed a multi-tier cloud-based banking app in
       - Logged into ECR 
       - Built/tagged docker image
       - Pushed image to ECR
-   16. Forced new deployment for the service using a revised task with the "latest" image
-   17. Set up Github Actions for automatic deployments
+   13. Updated the service using a revised task with the "latest" image
+   14. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
        - Created workflow (.yml file)
