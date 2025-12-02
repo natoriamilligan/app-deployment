@@ -143,18 +143,17 @@ For more screenshots, click [here](./screenshots)
        - Allow outbound traffic to RDS database
        - Modified the ALB security group to allow outbound traffic to this security group
    12. Created a service (banksie-task-service)
-       
-      - Added task definition previously created (banksie-task)
-      - Choose capacity provider strategy (FARGATE)
-      - Desired tasks = 1
-      - Networking
-        - Choose VPC (same as database)
-        - Choose all subnets in us-east-1
-      - Added banksie-sg security group previously created
-      - Added ALB that was previously created
-      - Service will have an error until we push an image
+       - Added task definition previously created (banksie-task)
+       - Choose capacity provider strategy (FARGATE)
+       - Desired tasks = 1
+       - Networking
+         - Choose VPC (same as database)
+         - Choose all subnets in us-east-1
+       - Added banksie-sg security group previously created
+       - Added ALB that was previously created
+       - Service will have an error until we push an image
    14. Configured RDS security group previously created
-      - Added inbound rule so the task security group (banksie-sg) can access the RDS on port 5432
+       - Added inbound rule so the task security group (banksie-sg) can access the RDS on port 5432
    15. Pushed Docker image to ECR via AWS CLI
       - Configured AWS CLI credentials using access keys from IAM user created
       - Logged into ECR
