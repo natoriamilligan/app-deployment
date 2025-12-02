@@ -50,8 +50,9 @@
      - Name container
      - Add image URI (add :latest at the end)
      - Define port mapping = TCP Port 80 HTTP (Gunicorn is listening on port 80 inside the container)
-6. Create and attach an inline policy to the task execution role to read secrets from AWS Secrets Manager
-7. Create ALB in EC2 console
+6. Revise the task definition with JSON to include the secret made using the secret arn
+7. Create and attach an inline policy to the task execution role to read secrets from AWS Secrets Manager
+8. Create ALB in EC2 console
    - Add listener for HTTP and HTTPS
      - Request new ACM certificate for api.banksie.app
      - add a record to Route 53 for api.banksie.app (will need time to propagate)
@@ -72,34 +73,24 @@
      - Choose at least 2 subnets
    - Create security group that allows HTTP/HTTPS traffic from ALB on port 80
    - Add ALB that was previously created
-   - Service will have an error until we push an image (Next Step)
-10. Push Docker image to ECR via AWs CLI
+   - Service will have an error until we push an image
+10. In EC2 console, go to security groups
+   - Choose the RDS security group made previously
+   - Add inbound rule so the task security group can access the RDS
+11. Push Docker image to ECR via AWS CLI
    1. Configure AWS CLI credentials
-   2. Log into ECR (add command here and wherever else needed)
-   3. Build docker image
-   4. Tag image
-   5. Push image
-11. Force new deployment for your service 
-12. Confirm that image was successfully push to the ECR repository via the public IP
-13. Create an SSL certificate for you ALB endpoint
+   2. Log into ECR 
+   3. Build/tag docker image
+   4. Push image
+11. Force new deployment for your service with the new image and revised task to include the image
 14. Set up Github Actions for automatic deployments
     1. Add secrets and variables to the Github repository
-    2. Create workflow and push to Github
-  
-
-4. Revise the task definition with JSON to include the secret made using the secret arn
-5. 
-2. In EC2 console, go to security groups
-   - Choose the RDS security group just made
-   - Add inbound rule so the task security group can access the RDS
-
-
+    2. Create workflow (.yml file)
 
 ## Services Used
 * Amazon Route 53 ($0.50/m)
 * Amazon Cloud Front (First 1TB free/m)
 * Amazon S3 Free Tier
-
 * Amazon ECS
 * Amazon ECR
 * Amazon IAM
@@ -114,9 +105,13 @@
 ## What I Learned
 - How to use Route 53 DNS service for an existing domain
 - How to create alias records in Route 53 to access AWS resources
-- How to create an SSL certificate with AWS Certificate Manager and attach it to a CloudFront Distribution
+- How to create an SSL certificate with AWS Certificate Manager and attach it to a CloudFront Distribution/ALB
 - How to create cache invalidations
 - AWS ECR and how to push an image via the CLI
 - ECS service deployment rollbacks use the image digest saved in a container and not the latest image created
 - How to add secrets and variables to Github repository
 - How to automate deployment with Github Actions
+- How to set up ALB health checks for an app
+- How to use CloudWatch to debug my ECS tasks
+- How to set up secure security groups
+- How to create secrets in AWS Secrets Manager
