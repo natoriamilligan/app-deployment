@@ -109,6 +109,7 @@
 * AWS RDS
 * AWS EC2 (Security Groups and Load Balancer)
 * AWS Secrets Manager
+* AWS CloudWatch
 
 ## What I Learned
 - How to use Route 53 DNS service for an existing domain
