@@ -22,7 +22,7 @@ In this project, I successfully deployed a multi-tier cloud-based banking app in
       - Wait for CF distribution to redeploy
      
 ### 🛢️ Database
-   1. Create a database in RDS
+   1. Created a database in RDS
       - Choose full configuration
       - PostgreSQL
       - Free tier
