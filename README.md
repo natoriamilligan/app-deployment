@@ -156,12 +156,12 @@ For more screenshots, click [here](./screenshots)
       - Added inbound rule so the task security group (banksie-sg) can access the RDS on port 5432
    14. Pushed Docker image to ECR via AWS CLI
       - Configured AWS CLI credentials using access keys from IAM user created
-       ![Configure credentials](./screenshots/cli-configure.png)
       - Logged into ECR
-
-       ![ECR Login](./screenshots/ecr-login.png)
       - Built/tagged docker image
       - Pushed image to ECR
+       ![Configure credentials](./screenshots/cli-configure.png)
+       ![ECR Login](./screenshots/ecr-login.png)
+       ![Build image](./screenshots/buildimage.png)
    16. Updated the service using a revised task with the "latest" image
    17. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
