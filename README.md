@@ -95,3 +95,10 @@ In this project, I successfully deployed a multi-tier cloud-based banking app in
    14. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
        - Created workflow (.yml file)
+      
+## Troubleshooting
+I encountered several problems throughout creating this architecture and deploying this app. Here are a list of some of the problems I encountered and how I fixed them:
+1. When I first created the yaml file for Github Actions I kept encountering an error "key enableFaultInjection" which was related to my task definition. The tasks would fail if they were started via Github Actions but not if I pushed an image manually to ECR. I realized that I was using the wrong version for the action invocation for aws-actions/amazon-ecs-deploy-task-definition. I need to be using version 2 but I was using version 1. I assume there was a bug that was fixed.
+2. After I fixed the Github Actions problem, my tasks would still fail. In CloudWatch I saw that my environment variable for the database url could not be read. I realized that the variable was stored in a .env file that I did not push and that I need to added the variable as a secret in AWS Secrets Manager. Then I revised the task definition using JSON and added a secrets key.
+3. My tasks would also fail because the tables in the ECR image did not match the tables in RDS. I must have changed my tables at some point and never migrated the changes. Migrating fixed the problem.
+4. I originally did not have an ALB, but when I added one, my tasks would fail. The ALB came back with a 404 error code. I did not have a health check path so I created one in my app and added the path to the target group (/health) to return an ok 200.
