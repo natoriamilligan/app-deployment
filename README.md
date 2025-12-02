@@ -159,9 +159,6 @@ For more screenshots, click [here](./screenshots)
       - Logged into ECR
       - Built/tagged docker image
       - Pushed image to ECR
-       ![Configure credentials](./screenshots/cli-configure.png)
-       ![ECR Login](./screenshots/ecr-login.png)
-       ![Build image](./screenshots/build-image.png)
    16. Updated the service using a revised task with the "latest" image
    17. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
