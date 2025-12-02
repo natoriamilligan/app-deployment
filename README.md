@@ -16,19 +16,14 @@
       </ul>
     </li>
     <li>
-      <a href="#-getting-started">Architecture Setup</a>
+      <a href="#%EF%B8%8F-architecture-setup">Architecture Setup</a>
       <ul>
-        <li><a href="#-prerequisites">Troubleshooting</a></li>
-        <li>
-          <a href="#%EF%B8%8F-installation">Installation</a>
-          <ul>
-            <li><a href="#%EF%B8%8F-frontend">Frontend</a></li>
-            <li><a href="#-backend">Backend</a></li>
-            <li><a href="#-docker">Docker</a></li>
-          </ul>
-        </li>
+        <li><a href="#-frontend">Frontend</a></li>
+        <li><a href="#-database">Database</a></li>
+        <li><a href="#-backend">Backend</a></li>
       </ul>
     </li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -167,5 +162,12 @@ I encountered several problems throughout creating this architecture and deployi
 2. After I fixed the Github Actions problem, my tasks would still fail. In CloudWatch I saw that my environment variable for the database url could not be read. I realized that the variable was stored in a .env file that I did not push and that I need to added the variable as a secret in AWS Secrets Manager. Then I revised the task definition using JSON and added a secrets key.
 
 3. My tasks would also fail because the tables in the ECR image did not match the tables in RDS. I must have changed my tables at some point and never migrated the changes. Migrating fixed the problem.
+
+## 📫 Contact
+
+Natoria Milligan - [@natoriamilligan](https://x.com/natoriamilligan) - natoriamilligan@gmail.com - [LinkedIn](https://www.linkedin.com/in/natoriamilligan)
+
+Project Link: [https://github.com/natoriamilligan/Python-Simple-Banking-System](https://github.com/natoriamilligan/Python-Simple-Banking-System)
+Banksie App Link: [https://github.com/natoriamilligan/Python-Simple-Banking-System](https://github.com/natoriamilligan/Python-Simple-Banking-System)
    
-4. I originally did not have an ALB, but when I added one, my tasks would fail. The ALB came back with a 404 error code. I did not have a health check path so I created one in my app and added the path to the target group (/health) to return an ok 200.
+5. I originally did not have an ALB, but when I added one, my tasks would fail. The ALB came back with a 404 error code. I did not have a health check path so I created one in my app and added the path to the target group (/health) to return an ok 200.
