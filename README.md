@@ -166,7 +166,8 @@ For more screenshots, click [here](./screenshots)
    17. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
        - Created workflow [(See file)](./deploy.yml)
-      
+      ![Running ALB and Task](./screenshots/running-healthy-alb.PNG)
+
 ## 🚧 Troubleshooting
 I encountered several problems throughout creating this architecture and deploying this app. Here are a list of some of the problems I encountered and how I fixed them:
 
