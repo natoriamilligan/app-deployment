@@ -165,6 +165,8 @@ For more screenshots, click [here](./screenshots)
    16. Updated the service using a revised task with the "latest" image
    17. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
+![Repo Secrets](./screenshots/repo-secrets.PNG)
+![Repo Variables](./screenshots/repo-variables.PNG)
        - Created workflow [(See file)](./deploy.yml)
          
 ### Running Task and Healthy ALB        
