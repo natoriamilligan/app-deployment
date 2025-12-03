@@ -73,14 +73,14 @@ For more screenshots, click [here](./screenshots)
 ## 🏗️ Architecture Setup
 
 ### 🖥️ Frontend
-   1. Registered a domain using a domain registrar (banksie.app)
+   1. Registered a domain using a domain registrar `banksie.app`
    2. Created a private S3 bucket with the same name as the root domain and added frontend files
    3. Used Route 53 as the DNS service for the domain 
       - Created a hosted zone (named hosted zone the root domain: banksie.app)
       - Added Route 53 nameservers for the hosted zone to the domain registrar used to register domain
       - Made sure nameservers propagated (Can take up to 48 hours)
    4. Created a CloudFront distribution with the origin as the S3 bucket 
-   5. Added root domain (banksie.app) and subdomain (www.banksie.app) as alternate domains for CF distribution
+   5. Added root domain (banksie.app) and subdomain `www.banksie.app` as alternate domains for CF distribution
    6. Requested SSL Certificate from AWS Certificate Manager
       - Included root domain and subdomain in certificate
       - ACM added CNAME records and A/AAAA records to the hosted zone, but this can be done manually
