@@ -170,7 +170,7 @@ For more screenshots, click [here](./screenshots)
 ![Repo Variables](./screenshots/repo-variables.PNG)
        - Created workflow [(See file)](./deploy.yml)
          
-### Running Task and Healthy ALB        
+### Running/Healthy Task        
 ![Running ALB and Task](./screenshots/running-healthy-alb.PNG)
 
 ## 🚧 Troubleshooting
