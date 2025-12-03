@@ -1,4 +1,4 @@
-# Banksie App Deployment
+# Full-Stack Flask Application Deployed on AWS with Github Actions
 
 <details>
   <summary>Table of Contents</summary>
