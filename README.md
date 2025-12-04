@@ -30,7 +30,7 @@
 
 
 ## ❓ Overview
-Built and deployed a scalable multi-tier banking application on AWS, leveraging S3, ECS, and RDS, and automated the entire deployment process through a GitHub Actions CI/CD pipeline.
+Built and deployed a scalable multi-tier banking application on AWS, leveraging S3, ECS, and RDS, and automated the backend deployment process through a GitHub Actions CI/CD pipeline.
 
 ### Frontend 
 ![Frontend Diagram](./architecture-diagrams/frontend-diagram.png)
